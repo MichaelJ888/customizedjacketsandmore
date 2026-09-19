@@ -78,10 +78,30 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 
+<!-- Google Search Console (FREE) — placeholder verification tag. To activate:
+     1. Go to search.google.com/search-console, add your property (the Netlify URL)
+     2. Choose "HTML tag" verification method — it gives you a content value
+     3. Replace REPLACE-WITH-YOUR-CODE below with that value, then click Verify on Google's page -->
+<meta name="google-site-verification" content="REPLACE-WITH-YOUR-CODE">
+
+<!-- Microsoft Clarity (FREE forever) — heatmaps + session recordings, complements Google Analytics.
+     Activate: create a free project at clarity.microsoft.com, replace YOUR_CLARITY_ID below. -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+</script>
+
+<!-- AOS (Animate On Scroll) — lightweight, free, adds subtle scroll-in animation for a premium feel -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.13.5/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -174,7 +194,7 @@
 
 <!-- ============ HEADER / NAV ============ -->
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b hairline">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-24">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between h-24">
     <a href="#top" class="flex items-center gap-3">
       <svg viewBox="0 0 64 64" class="w-16 h-16 sm:w-[68px] sm:h-[68px] shrink-0">
         <circle cx="32" cy="32" r="30" fill="#0B1E3D"/>
@@ -195,6 +215,7 @@
       <a href="#catalog" class="hover:text-navy transition-colors">Catalog</a>
       <a href="#quote" class="hover:text-navy transition-colors">Bulk Quotation</a>
       <a href="#trust" class="hover:text-navy transition-colors">Production</a>
+      <a href="#fabrics" class="hover:text-navy transition-colors">Fabrics</a>
       <a href="#faq" class="hover:text-navy transition-colors">FAQ</a>
       <a href="#testimonials" class="hover:text-navy transition-colors">Clients</a>
       <a href="#contact" class="hover:text-navy transition-colors">Contact</a>
@@ -213,6 +234,7 @@
     <a @click="mobileMenu=false" href="#catalog">Catalog</a>
     <a @click="mobileMenu=false" href="#quote">Bulk Quotation</a>
     <a @click="mobileMenu=false" href="#trust">Production</a>
+    <a @click="mobileMenu=false" href="#fabrics">Fabrics</a>
     <a @click="mobileMenu=false" href="#faq">FAQ</a>
     <a @click="mobileMenu=false" href="#testimonials">Clients</a>
     <a @click="mobileMenu=false" href="#contact">Contact</a>
@@ -225,7 +247,63 @@
   <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 2px 2px, #fff 1px, transparent 0); background-size: 28px 28px;"></div>
   <div class="absolute -right-24 -top-24 w-[520px] h-[520px] rounded-full bg-gold/10 blur-3xl"></div>
 
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 relative grid lg:grid-cols-12 gap-12 items-center">
+  <!-- Custom line-art backdrop: a jacket on the cutting table with embroidery hoop and thread spools -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-[0.13]" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="strokeFade" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#E0A458" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#E0A458" stop-opacity="0.15"/>
+      </linearGradient>
+      <pattern id="stitchLine" width="14" height="2" patternUnits="userSpaceOnUse">
+        <rect width="8" height="1.4" fill="#E0A458" opacity="0.5"/>
+      </pattern>
+    </defs>
+
+    <!-- jacket body -->
+    <g stroke="url(#strokeFade)" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M980 170 L1070 200 L1120 250 L1150 360 L1105 378 L1085 320 L1085 560 L830 560 L830 320 L810 378 L765 360 L795 250 L845 200 L935 170 Z"/>
+      <path d="M935 170 L957 235 L980 170"/>
+      <path d="M957 235 L957 560"/>
+      <path d="M845 200 L830 320 M1070 200 L1085 320"/>
+      <path d="M860 400 q 40 -14 78 0 M1055 400 q -40 -14 -78 0"/>
+    </g>
+    <path d="M957 250 L957 545" stroke="url(#stitchLine)" stroke-width="3" stroke-dasharray="9 7" fill="none"/>
+    <path d="M840 330 L840 548 M1075 330 L1075 548" stroke="#E0A458" stroke-width="1" stroke-dasharray="6 8" opacity="0.4" fill="none"/>
+
+    <!-- embroidered chest emblem -->
+    <g transform="translate(1012,300)">
+      <circle r="30" fill="none" stroke="#E0A458" stroke-width="2" opacity="0.7"/>
+      <circle r="22" fill="none" stroke="#E0A458" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/>
+      <path d="M0 -14 L4 -4 L15 -3 L7 4 L9 15 L0 9 L-9 15 L-7 4 L-15 -3 L-4 -4 Z" fill="#E0A458" opacity="0.55"/>
+    </g>
+
+    <!-- embroidery hoop, left -->
+    <g transform="translate(250,430)" fill="none" stroke="#E0A458" stroke-width="2" opacity="0.55">
+      <circle r="96"/><circle r="86" stroke-width="1" stroke-dasharray="4 5"/>
+      <rect x="-16" y="-112" width="32" height="20" rx="4"/>
+      <path d="M-46 12 q 46 -56 92 0" stroke-dasharray="8 6"/>
+      <path d="M-30 -22 q 30 -30 60 0" stroke-dasharray="8 6"/>
+    </g>
+
+    <!-- thread spools -->
+    <g opacity="0.45" stroke="#E0A458" fill="none" stroke-width="1.8">
+      <g transform="translate(470,565)"><rect x="-17" y="-52" width="34" height="52" rx="3"/><path d="M-17 -40 h34 M-17 -12 h34"/><path d="M-11 -34 h22 M-11 -28 h22 M-11 -22 h22" stroke-width="1" opacity="0.7"/></g>
+      <g transform="translate(524,565)"><rect x="-17" y="-40" width="34" height="40" rx="3"/><path d="M-17 -30 h34 M-17 -10 h34"/><path d="M-11 -25 h22 M-11 -19 h22" stroke-width="1" opacity="0.7"/></g>
+      <g transform="translate(578,565)"><rect x="-17" y="-60" width="34" height="60" rx="3"/><path d="M-17 -48 h34 M-17 -12 h34"/><path d="M-11 -42 h22 M-11 -36 h22 M-11 -30 h22" stroke-width="1" opacity="0.7"/></g>
+    </g>
+
+    <!-- tailor's shears -->
+    <g transform="translate(680,200) rotate(-24)" stroke="#E0A458" fill="none" stroke-width="2" opacity="0.4">
+      <path d="M0 0 L86 62 M0 28 L86 -34"/>
+      <circle cx="98" cy="70" r="13"/><circle cx="98" cy="-42" r="13"/>
+      <circle cx="44" cy="14" r="4" fill="#E0A458"/>
+    </g>
+
+    <!-- measuring tape sweep -->
+    <path d="M-40 620 q 300 -120 640 -30 t 620 -70" stroke="#E0A458" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="2 14"/>
+  </svg>
+
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-24 relative grid lg:grid-cols-12 gap-12 items-center">
 
     <div class="lg:col-span-7">
       <div class="flex flex-wrap gap-2 mb-8">
@@ -260,9 +338,9 @@
 
     <!-- Visual collage, desktop only -->
     <div class="lg:col-span-5 relative h-[440px] hidden lg:block">
-      <img src="https://picsum.photos/seed/heroA/420/300" class="absolute top-0 right-0 w-64 rounded-lg shadow-2xl rotate-2 border-4 border-white/10">
-      <img src="https://picsum.photos/seed/heroB/420/300" class="absolute bottom-16 right-24 w-56 rounded-lg shadow-2xl -rotate-3 border-4 border-white/10">
-      <img src="https://picsum.photos/seed/heroC/420/300" class="absolute bottom-0 left-0 w-52 rounded-lg shadow-2xl rotate-1 border-4 border-white/10">
+      <img :src="siteSettings.heroImg1" class="absolute top-0 right-0 w-64 rounded-lg shadow-2xl rotate-2 border-4 border-white/10" alt="Custom jacket sample">
+      <img :src="siteSettings.heroImg2" class="absolute bottom-16 right-24 w-56 rounded-lg shadow-2xl -rotate-3 border-4 border-white/10" alt="Custom jacket sample">
+      <img :src="siteSettings.heroImg3" class="absolute bottom-0 left-0 w-52 rounded-lg shadow-2xl rotate-1 border-4 border-white/10" alt="Custom jacket sample">
       <div class="absolute top-20 left-4 bg-white rounded-lg shadow-2xl p-4 w-36 text-center">
         <svg viewBox="0 0 64 64" class="w-10 h-10 mx-auto mb-1">
           <circle cx="32" cy="32" r="30" fill="#0B1E3D"/>
@@ -277,7 +355,7 @@
 
   <!-- Shop by category quick-nav -->
   <div class="border-t border-white/10 bg-navy-900/40">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex gap-2 overflow-x-auto">
+    <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-4 flex gap-2 overflow-x-auto">
       <template x-for="cat in categories" :key="'nav-'+cat">
         <button @click="activeCat=cat; document.getElementById('catalog').scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-medium text-white/60 hover:text-gold-400 border border-white/10 hover:border-gold-400/40 rounded-full px-4 py-2 transition-colors" x-text="cat"></button>
       </template>
@@ -285,9 +363,120 @@
   </div>
 </section>
 
-<!-- ============ TRUST / PRODUCTION SPECS ============ -->
+<!-- ============ TOOLS QUICK-NAV ============ -->
+<section class="bg-white border-b hairline py-10">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+    <p class="text-center text-xs uppercase tracking-wider text-navy-400 font-semibold mb-5">Free Tools Built Into This Website</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <a href="#fabrics" class="group border-2 border-navy/10 hover:border-gold-400 rounded-lg p-5 text-center transition-colors">
+        <i data-lucide="layers" class="w-6 h-6 mx-auto text-gold-600 mb-2"></i>
+        <p class="font-display font-bold text-navy text-sm">Choose Fabric</p>
+        <p class="text-[11px] text-navy-400 mt-1">See every fabric and color we stock</p>
+      </a>
+      <a href="#catalog" class="group border-2 border-navy/10 hover:border-gold-400 rounded-lg p-5 text-center transition-colors">
+        <i data-lucide="grid-3x3" class="w-6 h-6 mx-auto text-gold-600 mb-2"></i>
+        <p class="font-display font-bold text-navy text-sm">Choose Item</p>
+        <p class="text-[11px] text-navy-400 mt-1">Browse our full product catalogue</p>
+      </a>
+      <a href="#mockup" class="group border-2 border-navy/10 hover:border-gold-400 rounded-lg p-5 text-center transition-colors">
+        <i data-lucide="shirt" class="w-6 h-6 mx-auto text-gold-600 mb-2"></i>
+        <p class="font-display font-bold text-navy text-sm">Mock Up Design Creator</p>
+        <p class="text-[11px] text-navy-400 mt-1">Preview your logo on the jacket instantly</p>
+      </a>
+      <a href="#mockup" class="group border-2 border-navy/10 hover:border-gold-400 rounded-lg p-5 text-center transition-colors">
+        <i data-lucide="calculator" class="w-6 h-6 mx-auto text-gold-600 mb-2"></i>
+        <p class="font-display font-bold text-navy text-sm">Price Quotation Creator</p>
+        <p class="text-[11px] text-navy-400 mt-1">Real, itemized pricing in seconds</p>
+      </a>
+      <a href="#quote" class="group border-2 border-navy/10 hover:border-gold-400 rounded-lg p-5 text-center transition-colors">
+        <i data-lucide="file-signature" class="w-6 h-6 mx-auto text-gold-600 mb-2"></i>
+        <p class="font-display font-bold text-navy text-sm">Formal Quotation Creator</p>
+        <p class="text-[11px] text-navy-400 mt-1">Signed, printable, 50% DP computed</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALEX EALA MATCH COUNTDOWN ============ -->
+<section class="bg-navy py-16">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+    <div class="grid lg:grid-cols-5 gap-8 items-center border border-white/10 rounded-lg p-8 sm:p-10">
+      <div class="lg:col-span-2" x-show="siteSettings.ealaPhoto" x-cloak>
+        <img :src="siteSettings.ealaPhoto" class="w-full rounded-lg object-cover max-h-60" alt="Alex Eala">
+      </div>
+      <div :class="siteSettings.ealaPhoto ? 'lg:col-span-3' : 'lg:col-span-5 flex flex-col lg:flex-row lg:items-center justify-between gap-8'">
+        <div>
+          <p class="text-gold-400 font-semibold text-sm mb-2 flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4"></i> Proudly Cheering for the Philippines</p>
+          <h3 class="font-display font-bold text-white text-2xl sm:text-3xl mb-3">Alex Eala's Next WTA Match</h3>
+          <p class="text-white/60 text-sm max-w-md" x-text="ealaNextMatch.event + ' — vs. ' + ealaNextMatch.opponent"></p>
+          <a :href="ealaNextMatch.watchLink" target="_blank" class="inline-flex items-center gap-2 mt-4 text-gold-400 text-sm font-semibold hover:text-gold-100">Watch live on BlastTV <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.days"></p><p class="text-[10px] text-white/50 uppercase">Days</p></div>
+          <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.hours"></p><p class="text-[10px] text-white/50 uppercase">Hours</p></div>
+          <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.mins"></p><p class="text-[10px] text-white/50 uppercase">Mins</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="text-white/30 text-[11px] mt-3">Match schedule shown is informational and updated periodically by our team — always confirm exact timing and where to watch through the official WTA app or the tournament's licensed broadcaster.</p>
+  </div>
+</section>
+
+<!-- ============ NBA & GILAS COUNTDOWN (bonus section) ============ -->
+<section class="bg-navy-50/60 border-y hairline py-16">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+    <p class="text-gold-600 font-semibold text-sm mb-2 flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4"></i> Bonus — Basketball Fans</p>
+    <h3 class="font-display font-bold text-navy text-2xl sm:text-3xl mb-6">Pick a team, see their next game.</h3>
+
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <label class="text-xs font-semibold text-navy-400 uppercase tracking-wide">Select team</label>
+      <select x-model="selectedTeam" @change="ensureTeam(); updateCountdown()" class="border hairline rounded-md px-4 py-2.5 text-sm font-semibold text-navy bg-white min-w-[260px]">
+        <optgroup label="Philippines">
+          <option>Gilas Pilipinas</option>
+        </optgroup>
+        <optgroup label="NBA — Eastern Conference">
+          <template x-for="t in nbaEast" :key="t"><option x-text="t" :value="t"></option></template>
+        </optgroup>
+        <optgroup label="NBA — Western Conference">
+          <template x-for="t in nbaWest" :key="t"><option x-text="t" :value="t"></option></template>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 items-center bg-white border hairline rounded-lg p-8 sm:p-10">
+      <div class="lg:col-span-2" x-show="(teamSchedules[selectedTeam]?.photo)" x-cloak>
+        <img :src="(teamSchedules[selectedTeam]?.photo)" class="w-full rounded-lg object-cover max-h-60" :alt="selectedTeam">
+      </div>
+      <div :class="(teamSchedules[selectedTeam]?.photo) ? 'lg:col-span-3' : 'lg:col-span-5 flex flex-col lg:flex-row lg:items-center justify-between gap-8'">
+        <div>
+          <h4 class="font-display font-bold text-navy text-xl mb-2" x-text="selectedTeam+' — Next Game'"></h4>
+          <p class="text-navy-400 text-sm" x-text="(teamSchedules[selectedTeam]?.event) + ' — vs. ' + (teamSchedules[selectedTeam]?.opponent)"></p>
+          <a :href="(teamSchedules[selectedTeam]?.watchLink)" target="_blank" class="inline-flex items-center gap-2 mt-4 text-gold-600 text-sm font-semibold hover:text-gold-700">Where to watch <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <div class="text-center bg-navy-50 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-navy text-3xl" x-text="teamCountdown.days"></p><p class="text-[10px] text-navy-400 uppercase">Days</p></div>
+          <div class="text-center bg-navy-50 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-navy text-3xl" x-text="teamCountdown.hours"></p><p class="text-[10px] text-navy-400 uppercase">Hours</p></div>
+          <div class="text-center bg-navy-50 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-navy text-3xl" x-text="teamCountdown.mins"></p><p class="text-[10px] text-navy-400 uppercase">Mins</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="text-navy-400 text-[11px] mt-3">Schedule shown is manually updated by our team, not a live sports feed — the Admin Panel lets us keep this current. Team photos are placeholders until real, rights-cleared photos are added.</p>
+  </div>
+</section>
+
+<!-- ============ EXPLAINER VIDEO (admin-editable) ============ -->
+<section x-show="siteSettings.explainerVideoUrl" x-cloak class="max-w-5xl mx-auto px-6 sm:px-10 py-16">
+  <p class="text-gold-600 font-semibold text-sm mb-2 text-center">Watch</p>
+  <h2 class="font-display font-bold text-navy text-2xl sm:text-3xl tracking-tight mb-6 text-center">See how our website works for you.</h2>
+  <div class="aspect-video rounded-lg overflow-hidden border hairline">
+    <iframe x-show="siteSettings.explainerVideoType!=='file'" :src="youtubeEmbedUrl(siteSettings.explainerVideoUrl)" class="w-full h-full" frameborder="0" allowfullscreen title="Website explainer video"></iframe>
+    <video x-show="siteSettings.explainerVideoType==='file'" :src="siteSettings.explainerVideoUrl" controls class="w-full h-full bg-navy"></video>
+  </div>
+</section>
+
+
 <section id="trust" class="border-b hairline">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14 grid sm:grid-cols-3 gap-8">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-14 grid sm:grid-cols-3 gap-8">
     <div class="flex gap-4">
       <div class="w-11 h-11 rounded-md bg-navy-50 flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-5 h-5 text-navy"></i></div>
       <div>
@@ -315,12 +504,12 @@
 <!-- ============ CATALOG ============ -->
 <!-- ============ DESIGN STUDIO — LOGO MOCKUP + INSTANT PRICE QUOTE ============ -->
 <section id="mockup" class="bg-navy-50/60 border-y hairline py-20">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
     <div class="flex items-center gap-2 mb-2">
       <span class="bg-gold text-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Free Tool</span>
-      <p class="text-gold-600 font-semibold text-sm">Design Studio &amp; Instant Price Quote</p>
+      <p class="text-gold-600 font-semibold text-sm">Mock Design Creator + Price Quotation Creator</p>
     </div>
-    <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-3">See your logo on the jacket — and know the exact price — before you order.</h2>
+    <h2 data-aos="fade-up" class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-3">See your logo on the jacket — and know the exact price — before you order.</h2>
     <p class="text-navy-400 max-w-2xl mb-10">Pick a product, attach your logo(s), tell us your fabric, printing method, and quantity — get a real, itemized price using our actual 2026 rate card. No waiting for a reply.</p>
 
     <div class="grid lg:grid-cols-5 gap-8">
@@ -335,6 +524,10 @@
 
         <div x-show="isJacketCategory()">
           <label class="text-xs font-semibold text-navy uppercase tracking-wide mb-2 block">2. Fabric Class</label>
+          <div x-show="selectedFabric" x-cloak class="bg-gold/10 border border-gold-600/30 rounded-md px-3 py-2 mb-2 text-[11px] text-navy">
+            Selected from Fabric Selector: <b x-text="selectedFabric?.name + ' — ' + selectedColor"></b>
+            <a href="#fabrics" class="text-gold-600 underline ml-1">change</a>
+          </div>
           <div class="flex gap-2">
             <button @click="mockup.fabricClass='B'" :class="mockup.fabricClass==='B' ? 'ring-2 ring-gold-600 bg-gold/10' : ''" class="flex-1 border hairline rounded-md py-2 text-xs font-semibold">Class B (Microfiber, Ripstop) — included</button>
             <button @click="mockup.fabricClass='A'" :class="mockup.fabricClass==='A' ? 'ring-2 ring-gold-600 bg-gold/10' : ''" class="flex-1 border hairline rounded-md py-2 text-xs font-semibold">Class A (Premium) +₱400</button>
@@ -349,6 +542,13 @@
             <label class="flex items-center gap-2 border hairline rounded-md px-2 py-1.5"><input type="checkbox" x-model="mockup.addons.hood"> With Hood (+₱150)</label>
             <label class="flex items-center gap-2 border hairline rounded-md px-2 py-1.5"><input type="checkbox" x-model="mockup.addons.netLining"> Net Lining (+₱150)</label>
           </div>
+        </div>
+
+        <div>
+          <label class="flex items-center gap-2 border hairline rounded-md px-3 py-2 text-xs bg-red-50 border-red-200">
+            <input type="checkbox" x-model="mockup.rushOrder">
+            <span><b class="text-red-700">Rush Order</b> (7–10 days instead of standard lead time) — <b>+₱200/pc</b>, applies to all jackets and uniforms</span>
+          </label>
         </div>
 
         <div>
@@ -420,6 +620,7 @@
             <div class="flex justify-between text-white/70" x-show="instantQuote().addonsTotal>0"><span>Fabric &amp; add-ons</span><span x-text="'+₱'+instantQuote().addonsTotal.toLocaleString()+'/pc'"></span></div>
             <div class="flex justify-between text-white/70" x-show="instantQuote().extraLogosCost>0"><span>Extra logo charges</span><span x-text="'+₱'+instantQuote().extraLogosCost.toLocaleString()+'/pc'"></span></div>
             <div class="flex justify-between text-white/70" x-show="instantQuote().nameCost>0"><span x-text="'Individual name ('+letterCount(mockup.sampleName)+' letters)'"></span><span x-text="'+₱'+instantQuote().nameCost.toLocaleString()+'/pc'"></span></div>
+            <div class="flex justify-between text-red-300" x-show="instantQuote().rushCost>0"><span>Rush order (7–10 days)</span><span x-text="'+₱'+instantQuote().rushCost.toLocaleString()+'/pc'"></span></div>
             <div class="flex justify-between border-t border-white/10 pt-2 font-semibold"><span>Price per piece</span><span x-text="'₱'+instantQuote().perPieceTotal.toLocaleString()"></span></div>
             <div class="flex justify-between text-2xl font-display font-bold text-gold-400 pt-2"><span>Total</span><span x-text="'₱'+instantQuote().grandTotal.toLocaleString()"></span></div>
           </div>
@@ -435,27 +636,63 @@
   </div>
 </section>
 
-<!-- ============ ALEX EALA MATCH COUNTDOWN ============ -->
-<section class="bg-navy py-16">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 border border-white/10 rounded-lg p-8 sm:p-10">
-      <div>
-        <p class="text-gold-400 font-semibold text-sm mb-2 flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4"></i> Proudly Cheering for the Philippines</p>
-        <h3 class="font-display font-bold text-white text-2xl sm:text-3xl mb-3">Alex Eala's Next WTA Match</h3>
-        <p class="text-white/60 text-sm max-w-md" x-text="ealaNextMatch.event + ' — vs. ' + ealaNextMatch.opponent"></p>
-        <a :href="ealaNextMatch.watchLink" target="_blank" class="inline-flex items-center gap-2 mt-4 text-gold-400 text-sm font-semibold hover:text-gold-100">Watch live on BlastTV <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+<!-- ============ FABRIC SELECTION ============ -->
+<section id="fabrics" class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-20 border-b hairline">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="bg-gold text-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Step 1</span>
+    <p class="text-gold-600 font-semibold text-sm">Fabric Selector</p>
+  </div>
+  <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-3">Choose your fabric and color first.</h2>
+  <p class="text-navy-400 max-w-2xl mb-8">Every fabric we stock, with its real feel, weight, and best use. Pick one — your choice carries straight through to your quotation.</p>
+
+  <div class="flex flex-wrap gap-2 mb-8">
+    <button @click="fabricFilter='All'" :class="fabricFilter==='All' ? 'bg-navy text-white' : 'bg-navy-50 text-navy-400 hover:bg-navy-100'" class="text-xs font-semibold px-4 py-2 rounded-full transition-colors">All Fabrics</button>
+    <template x-for="cls in ['Class B','Class A']" :key="cls">
+      <button @click="fabricFilter=cls" :class="fabricFilter===cls ? 'bg-navy text-white' : 'bg-navy-50 text-navy-400 hover:bg-navy-100'" class="text-xs font-semibold px-4 py-2 rounded-full transition-colors" x-text="cls + (cls==='Class A' ? ' (+₱400/pc)' : ' (included)')"></button>
+    </template>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <template x-for="f in filteredFabrics()" :key="f.name">
+      <div class="border hairline rounded-lg overflow-hidden hover:shadow-lg hover:border-gold-400/50 transition-all"
+           :class="selectedFabric && selectedFabric.name===f.name ? 'ring-2 ring-gold-400' : ''">
+        <div class="h-36 bg-navy-50 relative">
+          <img x-show="f.img" :src="f.img" class="w-full h-full object-cover" :alt="f.name">
+          <video x-show="f.video" :src="f.video" muted loop autoplay playsinline class="w-full h-full object-cover"></video>
+          <div x-show="!f.img && !f.video" class="w-full h-full flex items-center justify-center text-navy-400 text-xs">Photo/video to be added</div>
+          <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-1 rounded-full" :class="f.class==='Class A' ? 'bg-gold text-navy' : 'bg-white/95 text-navy'" x-text="f.class"></span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-display font-bold text-navy text-sm mb-1" x-text="f.name"></h3>
+          <p class="text-xs text-navy-400 mb-3" x-text="f.description"></p>
+          <p class="text-[11px] text-navy-400 mb-3"><b class="text-navy">Best for:</b> <span x-text="f.bestFor"></span></p>
+
+          <p class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-1.5">Available colors</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <template x-for="c in f.colors" :key="c.name">
+              <button @click="pickFabric(f, c)" :title="c.name"
+                      class="w-6 h-6 rounded-full border-2 transition-transform hover:scale-110"
+                      :class="selectedFabric && selectedFabric.name===f.name && selectedColor===c.name ? 'border-gold-600 scale-110' : 'border-navy-100'"
+                      :style="'background-color:'+c.hex"></button>
+            </template>
+          </div>
+          <button @click="pickFabric(f, f.colors[0])" class="w-full text-xs font-semibold border border-navy text-navy rounded-md py-2 hover:bg-navy hover:text-white transition-colors">Select This Fabric</button>
+        </div>
       </div>
-      <div class="flex gap-4">
-        <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.days"></p><p class="text-[10px] text-white/50 uppercase">Days</p></div>
-        <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.hours"></p><p class="text-[10px] text-white/50 uppercase">Hours</p></div>
-        <div class="text-center bg-white/5 rounded-lg px-5 py-4 w-20"><p class="font-display font-bold text-white text-3xl" x-text="countdown.mins"></p><p class="text-[10px] text-white/50 uppercase">Mins</p></div>
-      </div>
+    </template>
+  </div>
+
+  <div x-show="selectedFabric" x-cloak class="mt-8 bg-navy rounded-lg p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>
+      <p class="text-white/50 text-xs uppercase tracking-wide mb-1">Your selection</p>
+      <p class="font-display font-bold text-lg"><span x-text="selectedFabric?.name"></span> — <span x-text="selectedColor"></span></p>
+      <p class="text-white/60 text-xs" x-text="selectedFabric?.class === 'Class A' ? 'Class A premium fabric (+₱400 per piece)' : 'Class B standard fabric (included in base price)'"></p>
     </div>
-    <p class="text-white/30 text-[11px] mt-3">Match schedule shown is informational and updated periodically by our team — always confirm exact timing and where to watch through the official WTA app or the tournament's licensed broadcaster.</p>
+    <a href="#mockup" class="bg-gold hover:bg-gold-600 text-navy font-display font-bold px-6 py-3 rounded-md transition-colors shrink-0">Continue to Design Studio →</a>
   </div>
 </section>
 
-<section id="catalog" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
+<section id="catalog" class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-20">
   <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
     <div>
       <p class="text-gold-600 font-semibold text-sm mb-2">Product Catalog</p>
@@ -480,6 +717,9 @@
         <div class="aspect-[4/3] overflow-hidden bg-navy-50 relative">
           <img :src="p.img" :alt="p.title" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-white/95 text-navy text-[10px] font-bold px-2.5 py-1 rounded-full">MOQ <span x-text="p.moq"></span> pcs</span>
+          <span x-show="mediaCount(p) > 1" x-cloak class="absolute bottom-3 right-3 bg-navy/85 text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+            <i data-lucide="images" class="w-3 h-3"></i><span x-text="mediaCount(p)"></span>
+          </span>
         </div>
         <div class="p-4 flex flex-col flex-1">
           <p class="text-[11px] font-semibold text-gold-600 uppercase tracking-wide mb-1" x-text="p.category"></p>
@@ -501,7 +741,7 @@
 
 <!-- ============ QUOTATION BUILDER + PAYMENT ============ -->
 <section id="quote" class="bg-navy-50/60 border-y hairline py-20">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
     <p class="text-gold-600 font-semibold text-sm mb-2">Bulk Quotation Builder</p>
     <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-10">Estimate your order, then send it straight to our sales team.</h2>
 
@@ -547,9 +787,9 @@
         <h3 class="font-display font-bold mb-1">Jacket Pricing by Volume</h3>
         <p class="text-white/60 text-xs mb-6">Real 2026 price list, per piece. Every other category (polo, coveralls, scrubs, school uniforms, trophies, pins, lanyards) has its own tiers — add it to your quotation above to see the exact rate.</p>
         <div class="space-y-2 max-h-72 overflow-y-auto pr-1">
-          <template x-for="(t, i) in priceTables.jacket" :key="t.min">
-            <div class="flex items-center justify-between border border-white/10 rounded-md px-4 py-2.5" :class="i===priceTables.jacket.length-1 ? 'bg-gold/15 border-gold-400/40' : ''">
-              <p class="text-sm font-medium" x-text="(t.max>=999999 ? t.min+'+' : t.min+'–'+t.max)+' pcs'"></p>
+          <template x-for="(t, i) in displayJacketTiers()" :key="t.min">
+            <div class="flex items-center justify-between border border-white/10 rounded-md px-4 py-2.5" :class="i===displayJacketTiers().length-1 ? 'bg-gold/15 border-gold-400/40' : ''">
+              <p class="text-sm font-medium" x-text="t.label"></p>
               <p class="font-display font-bold text-sm" x-text="'₱'+t.price.toLocaleString()"></p>
             </div>
           </template>
@@ -601,7 +841,7 @@
       </button>
       <div class="flex flex-wrap gap-3 mt-3">
         <button @click="sendViaWhatsApp()" class="text-xs font-semibold border border-navy text-navy rounded-md px-4 py-2.5 flex items-center gap-1.5 hover:bg-navy hover:text-white transition-colors"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Via WhatsApp</button>
-        <button @click="sendViaViber()" class="text-xs font-semibold border border-navy text-navy rounded-md px-4 py-2.5 flex items-center gap-1.5 hover:bg-navy hover:text-white transition-colors"><i data-lucide="phone" class="w-3.5 h-3.5"></i> <span x-text="'Via Viber ('+siteSettings.phoneSmartViber+')'"></span></button>
+        <button @click="sendViaViber()" class="text-xs font-semibold border border-navy text-navy rounded-md px-4 py-2.5 flex items-center gap-1.5 hover:bg-navy hover:text-white transition-colors"><i data-lucide="phone" class="w-3.5 h-3.5"></i> Via Viber</button>
         <button @click="openFormalQuote()" class="text-xs font-semibold border border-gold-600 text-gold-600 rounded-md px-4 py-2.5 flex items-center gap-1.5 hover:bg-gold hover:text-white transition-colors"><i data-lucide="file-text" class="w-3.5 h-3.5"></i> Generate Formal Quotation (PDF)</button>
       </div>
       <p class="text-[11px] text-navy-400 mt-2">This site has no backend — orders are confirmed directly with our sales team via WhatsApp/Viber, not auto-processed. Nothing is charged automatically.</p>
@@ -610,7 +850,7 @@
 </section>
 
 <!-- ============ PRODUCTION UPDATES FEED ============ -->
-<section class="max-w-7xl mx-auto px-5 sm:px-8 py-20 border-b hairline">
+<section class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-20 border-b hairline">
   <p class="text-gold-600 font-semibold text-sm mb-2">Latest From the Floor</p>
   <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-10">Production updates, posted as they happen.</h2>
 
@@ -633,7 +873,7 @@
   </div>
 </section>
 
-<section id="testimonials" x-show="showTestimonials" x-cloak class="max-w-7xl mx-auto px-5 sm:px-8 py-20 overflow-hidden">
+<section id="testimonials" x-show="showTestimonials" x-cloak class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-20 overflow-hidden">
   <p class="text-gold-600 font-semibold text-sm mb-2">Client Feedback</p>
   <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-3">Trusted by procurement teams across industries.</h2>
   <p class="text-xs text-navy-400 mb-10">Placeholder feedback for demonstration — replace with real client reviews once collected.</p>
@@ -666,7 +906,11 @@
       <template x-for="n in 2" :key="'newsloop-'+n">
         <div class="flex items-center gap-8 pr-8 text-white/70 text-xs">
           <template x-for="(item,i) in newsItems" :key="n+'-'+i">
-            <a :href="item.link" target="_blank" class="flex items-center gap-2 hover:text-gold-400"><span class="text-gold-400">●</span><span x-text="item.title"></span></a>
+            <a :href="item.link" target="_blank" class="flex items-center gap-2 hover:text-gold-400">
+              <span :class="item.ph ? 'text-gold-400' : 'text-white/30'">●</span>
+              <span x-show="item.ph" class="text-[9px] font-bold bg-gold text-navy px-1.5 py-0.5 rounded">PH</span>
+              <span x-text="item.title" :class="item.ph ? 'text-white' : ''"></span>
+            </a>
           </template>
         </div>
       </template>
@@ -675,7 +919,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+<section id="faq" class="max-w-5xl mx-auto px-6 sm:px-10 py-20">
   <p class="text-gold-600 font-semibold text-sm mb-2">Frequently Asked Questions</p>
   <h2 class="font-display font-bold text-navy text-3xl sm:text-4xl tracking-tight mb-10">Answers before you even have to ask.</h2>
   <div class="space-y-3">
@@ -692,9 +936,19 @@
 </section>
 
 <!-- ============ WEEKLY WEATHER ============ -->
-<section class="max-w-7xl mx-auto px-5 sm:px-8 py-14 border-t hairline">
-  <p class="text-gold-600 font-semibold text-sm mb-2">Metro Manila Weather</p>
-  <h2 class="font-display font-bold text-navy text-2xl tracking-tight mb-6">This week's forecast (BGC / Taguig area)</h2>
+<section class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-14 border-t hairline">
+  <p class="text-gold-600 font-semibold text-sm mb-2">Weather Forecast</p>
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <h2 class="font-display font-bold text-navy text-2xl tracking-tight">This week in <span x-text="weatherCity"></span></h2>
+    <div class="flex gap-2">
+      <select x-model="weatherCity" @change="loadWeather()" class="border hairline rounded-md px-3 py-2 text-sm">
+        <template x-for="city in Object.keys(weatherCities)" :key="city"><option x-text="city" :value="city"></option></template>
+      </select>
+      <button @click="useMyLocation()" class="border hairline rounded-md px-3 py-2 text-sm text-navy-400 hover:text-navy flex items-center gap-1.5" title="Use my current location">
+        <i data-lucide="locate-fixed" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
   <div class="grid grid-cols-3 sm:grid-cols-7 gap-3">
     <template x-for="(d,i) in weather" :key="i">
       <div class="border hairline rounded-lg p-3 text-center">
@@ -709,7 +963,7 @@
 </section>
 
 <!-- ============ CLIENT LIST ============ -->
-<section x-show="showClientList" x-cloak class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+<section x-show="showClientList" x-cloak class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 py-14">
   <p class="text-xs uppercase tracking-wider text-navy-400 font-semibold mb-5">Companies we've worked with</p>
   <div class="flex flex-wrap gap-3">
     <template x-for="c in clientNames" :key="c.name">
@@ -722,7 +976,7 @@
   <p class="text-[11px] text-navy-400 mt-4">Placeholder list for demonstration — replace with your real, permission-cleared client names via the Admin Panel before publishing.</p>
 </section>
 <section id="contact" class="bg-navy py-20">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-5 gap-12">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 grid lg:grid-cols-5 gap-12">
     <div class="lg:col-span-2 text-white">
       <p class="text-gold-400 font-semibold text-sm mb-2">Get in Touch</p>
       <h2 class="font-display font-bold text-3xl tracking-tight mb-6">Talk to our sales team directly.</h2>
@@ -739,6 +993,13 @@
           <a x-show="siteSettings.tiktok" :href="siteSettings.tiktok" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-400 hover:text-navy"><i data-lucide="music-2" class="w-4 h-4"></i></a>
           <a x-show="siteSettings.youtube" :href="siteSettings.youtube" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-400 hover:text-navy"><i data-lucide="youtube" class="w-4 h-4"></i></a>
         </div>
+      </div>
+
+      <div class="mt-6 rounded-lg overflow-hidden border border-white/10">
+        <iframe
+          :src="'https://www.google.com/maps?q='+encodeURIComponent(siteSettings.productionFacility)+'&output=embed'"
+          width="100%" height="220" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Production facility location map"></iframe>
       </div>
     </div>
 
@@ -776,10 +1037,13 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="border-t hairline py-10">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+  <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
     <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-navy-400 mb-4">
       <p>&copy; <span x-text="new Date().getFullYear()"></span> Customized Jackets and More. All rights reserved.</p>
       <div class="flex gap-4 items-center">
+        <button @click="shareSite('facebook')" class="hover:text-navy" title="Share on Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></button>
+        <button @click="shareSite('twitter')" class="hover:text-navy" title="Share on X/Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></button>
+        <button @click="shareSite('native')" class="hover:text-navy" title="Share / Copy Link"><i data-lucide="share-2" class="w-4 h-4"></i></button>
         <button @click="legalTab='privacy'; showLegal=true" class="hover:text-navy">Privacy Policy</button>
         <button @click="legalTab='terms'; showLegal=true" class="hover:text-navy">Terms of Service</button>
         <button @click="openAdminOrExplain()" class="hover:text-navy">Admin Panel</button>
@@ -791,7 +1055,7 @@
 
 <!-- ============ COOKIE / PRIVACY NOTICE ============ -->
 <div x-show="showCookieNotice" x-cloak x-transition class="fixed bottom-0 inset-x-0 z-50 bg-navy text-white p-4 sm:p-5">
-  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4 justify-between">
+  <div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center gap-4 justify-between">
     <p class="text-xs text-white/70">We use basic analytics cookies to understand how visitors use this site. No personal data is sold. <button @click="legalTab='privacy'; showLegal=true" class="underline hover:text-gold-400">Read our Privacy Policy</button>.</p>
     <button @click="acceptCookies()" class="bg-gold text-navy text-xs font-bold px-5 py-2 rounded-md shrink-0">Got it</button>
   </div>
@@ -835,7 +1099,29 @@
   <div x-show="selectedProduct" x-transition class="relative bg-white rounded-lg max-w-3xl w-full max-h-[88vh] overflow-y-auto" @click.outside="selectedProduct=null" x-cloak>
     <template x-if="selectedProduct">
       <div>
-        <img :src="selectedProduct.img" class="w-full h-60 object-cover">
+        <div class="bg-navy-50">
+          <div class="h-72 sm:h-80 relative bg-navy-900/5">
+            <img x-show="activeMedia(selectedProduct).type==='image'" :src="activeMedia(selectedProduct).src" class="w-full h-full object-contain">
+            <video x-show="activeMedia(selectedProduct).type==='video'" :src="activeMedia(selectedProduct).src" controls class="w-full h-full object-contain bg-navy"></video>
+            <iframe x-show="activeMedia(selectedProduct).type==='youtube'" :src="activeMedia(selectedProduct).src" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+
+            <button x-show="allMedia(selectedProduct).length > 1" @click="prevMedia(selectedProduct)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 shadow flex items-center justify-center text-navy hover:bg-white">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button x-show="allMedia(selectedProduct).length > 1" @click="nextMedia(selectedProduct)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 shadow flex items-center justify-center text-navy hover:bg-white">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <div x-show="allMedia(selectedProduct).length > 1" class="flex gap-2 overflow-x-auto p-3">
+            <template x-for="(m, i) in allMedia(selectedProduct)" :key="i">
+              <button @click="mediaIndex = i" class="shrink-0 w-16 h-16 rounded border-2 overflow-hidden relative" :class="mediaIndex===i ? 'border-gold-600' : 'border-transparent opacity-70 hover:opacity-100'">
+                <img x-show="m.type==='image'" :src="m.src" class="w-full h-full object-cover">
+                <div x-show="m.type!=='image'" class="w-full h-full bg-navy flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white"></i></div>
+              </button>
+            </template>
+          </div>
+        </div>
         <div class="p-6 sm:p-8">
           <div class="flex justify-between items-start mb-2">
             <div>
@@ -884,8 +1170,9 @@
 <!-- ============ ADMIN DRAWER ============ -->
 <div x-show="showAdmin" x-cloak class="fixed inset-0 z-50 flex justify-end">
   <div class="absolute inset-0 bg-navy-900/60" @click="showAdmin=false"></div>
-  <div x-show="showAdmin" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" class="relative bg-white w-full max-w-md h-full overflow-y-auto p-6 sm:p-8" x-cloak>
+  <div x-show="showAdmin" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" class="relative bg-white w-full max-w-md h-full flex flex-col" x-cloak>
 
+    <div class="flex-1 overflow-y-auto p-6 sm:p-8">
     <div class="flex justify-between items-center mb-6">
       <h3 class="font-display font-bold text-navy text-lg">Admin Panel</h3>
       <button @click="showAdmin=false" class="text-navy-400 hover:text-navy"><i data-lucide="x" class="w-5 h-5"></i></button>
@@ -927,6 +1214,70 @@
           <p class="text-[10px] text-white/50 mt-1">This only counts visits from YOUR device — it cannot see other customers. For real visitor analytics across everyone who visits your live site, connect free Google Analytics (ask me to add the snippet once you have a Measurement ID).</p>
         </div>
 
+        <details class="border-2 border-gold-600/40 rounded-md mb-6" open>
+          <summary class="cursor-pointer px-4 py-3 font-semibold text-navy text-sm flex items-center gap-2 bg-gold/10"><i data-lucide="clipboard-list" class="w-4 h-4"></i> CRM / ERP — Order Pipeline (<span x-text="crmOrders.length"></span>)</summary>
+          <div class="p-4 space-y-3">
+
+            <div class="flex gap-2 flex-wrap mb-2">
+              <template x-for="s in ['All','New Inquiry','Actual Sample','Mass Production','Completed']" :key="s">
+                <button @click="crmFilter=s" :class="crmFilter===s ? 'bg-navy text-white' : 'bg-navy-50 text-navy-400'" class="text-[11px] font-semibold px-3 py-1.5 rounded-full" x-text="s"></button>
+              </template>
+            </div>
+
+            <div class="space-y-2 max-h-96 overflow-y-auto">
+              <template x-for="(o, idx) in filteredCrmOrders()" :key="o.id">
+                <div class="border-l-4 hairline border rounded-md p-3" :class="urgencyBorder(o.urgency)">
+                  <div class="flex items-start justify-between gap-2 mb-1">
+                    <div class="min-w-0">
+                      <p class="font-semibold text-navy text-sm truncate" x-text="o.client"></p>
+                      <p class="text-[11px] text-navy-400" x-text="o.contact"></p>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0" :class="urgencyBadge(o.urgency)" x-text="o.urgency"></span>
+                  </div>
+                  <p class="text-[11px] text-navy-400 mb-1" x-text="o.details"></p>
+                  <div class="flex flex-wrap gap-x-3 gap-y-1 text-[10px] text-navy-400 mb-2">
+                    <span x-show="o.qty"><b class="text-navy" x-text="o.qty"></b> pcs</span>
+                    <span x-show="o.fabric">Fabric: <b class="text-navy" x-text="o.fabric"></b></span>
+                    <span x-show="o.deadline">Deadline: <b class="text-navy" x-text="o.deadline"></b></span>
+                    <span x-show="o.value">Value: <b class="text-navy" x-text="'₱'+Number(o.value).toLocaleString()"></b></span>
+                  </div>
+                  <div x-show="o.mockup || o.logoFile" class="flex gap-2 mb-2">
+                    <a x-show="o.mockup" :href="o.mockup" download="mockup.png" class="text-[10px] border hairline rounded px-2 py-1 text-navy-400 hover:text-navy">↓ Mock-up</a>
+                    <a x-show="o.logoFile" :href="o.logoFile" download="client-logo.png" class="text-[10px] border hairline rounded px-2 py-1 text-navy-400 hover:text-navy">↓ Hi-res logo</a>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <select x-model="o.stage" @change="saveCrm()" class="flex-1 text-[11px] border hairline rounded px-2 py-1">
+                      <option>New Inquiry</option><option>Actual Sample</option><option>Mass Production</option><option>Completed</option>
+                    </select>
+                    <select x-model="o.urgency" @change="saveCrm()" class="text-[11px] border hairline rounded px-2 py-1">
+                      <option>Low</option><option>Medium</option><option>High</option><option>Urgent</option>
+                    </select>
+                    <button @click="crmOrders.splice(crmOrders.indexOf(o),1); saveCrm()" class="text-red-500 text-[11px]">✕</button>
+                  </div>
+                  <input x-model="o.nextAction" @change="saveCrm()" placeholder="Next action needed..." class="w-full mt-2 text-[11px] border hairline rounded px-2 py-1">
+                </div>
+              </template>
+              <p x-show="filteredCrmOrders().length===0" class="text-[11px] text-navy-400 text-center py-6">No orders in this stage yet. Orders added from the website's quotation flow appear here automatically, or add one manually below.</p>
+            </div>
+
+            <div class="border-t hairline pt-3 space-y-2">
+              <p class="text-[11px] font-semibold text-navy">Add Lead Manually (e.g. from Facebook Messenger, walk-in, phone)</p>
+              <input x-model="newCrmOrder.client" placeholder="Client / company name" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              <input x-model="newCrmOrder.contact" placeholder="Contact number or email" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              <textarea x-model="newCrmOrder.details" placeholder="What they want — item, specs, notes" rows="2" class="w-full border hairline rounded-md px-3 py-2 text-sm"></textarea>
+              <div class="grid grid-cols-2 gap-2">
+                <input x-model.number="newCrmOrder.qty" type="number" placeholder="Qty (pcs)" class="border hairline rounded-md px-3 py-2 text-sm">
+                <input x-model="newCrmOrder.deadline" type="date" class="border hairline rounded-md px-3 py-2 text-sm">
+                <input x-model="newCrmOrder.fabric" placeholder="Fabric / color" class="border hairline rounded-md px-3 py-2 text-sm">
+                <select x-model="newCrmOrder.urgency" class="border hairline rounded-md px-3 py-2 text-sm">
+                  <option>Low</option><option>Medium</option><option>High</option><option>Urgent</option>
+                </select>
+              </div>
+              <button @click="addCrmOrder()" class="w-full bg-navy text-white font-semibold py-2 rounded-md text-sm">Add to Pipeline</button>
+            </div>
+          </div>
+        </details>
+
         <details class="border hairline rounded-md mb-6">
           <summary class="cursor-pointer px-4 py-3 font-semibold text-navy text-sm flex items-center gap-2"><i data-lucide="settings" class="w-4 h-4"></i> Site Settings — Address, Contact Numbers &amp; Social Media</summary>
           <div class="p-4 pt-0 space-y-3">
@@ -952,6 +1303,36 @@
               <div><label class="text-[11px] font-semibold text-navy-400 block mb-1">WhatsApp number (digits only, country code, no +)</label><input x-model="siteSettings.whatsappNumber" placeholder="639XXXXXXXXX" class="w-full border hairline rounded-md px-3 py-2 text-sm"></div>
               <div><label class="text-[11px] font-semibold text-navy-400 block mb-1">Viber number (digits only, country code, no +)</label><input x-model="siteSettings.viberNumber" placeholder="639XXXXXXXXX" class="w-full border hairline rounded-md px-3 py-2 text-sm"></div>
             </div>
+            <p class="text-[11px] font-semibold text-navy pt-1">Explainer Video</p>
+            <input x-model="siteSettings.explainerVideoUrl" placeholder="Paste YouTube link (any format) here" @change="siteSettings.explainerVideoType='youtube'" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+            <p class="text-[10px] text-navy-400 text-center">— or —</p>
+            <label class="flex items-center justify-center gap-2 border-2 border-dashed hairline rounded-md py-3 cursor-pointer hover:border-gold-400 transition-colors">
+              <i data-lucide="video" class="w-4 h-4 text-navy-400"></i>
+              <span class="text-xs text-navy-400">Attach a short video file directly (under 8MB)</span>
+              <input type="file" accept="video/*" class="hidden" @change="attachExplainerVideo($event)">
+            </label>
+            <p class="text-[10px] text-navy-400">For anything longer than a minute or two, use a YouTube link instead (upload it as "Unlisted" if you're not ready to make it public) — this website has no video server, so large files won't fit or load reliably.</p>
+            <p class="text-[11px] font-semibold text-navy pt-1">Hero Section Photos (3 images shown top-right of homepage)</p>
+            <input x-model="siteSettings.heroImg1" placeholder="Hero photo 1 URL" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+            <input x-model="siteSettings.heroImg2" placeholder="Hero photo 2 URL" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+            <input x-model="siteSettings.heroImg3" placeholder="Hero photo 3 URL" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+            <p class="text-[11px] font-semibold text-navy pt-1">Sports Section Photos</p>
+            <label class="flex items-center justify-center gap-2 border-2 border-dashed hairline rounded-md py-2 cursor-pointer hover:border-gold-400 text-[11px] text-navy-400">
+              <i data-lucide="image-plus" class="w-3 h-3"></i> <span x-text="siteSettings.ealaPhoto ? 'Replace Alex Eala photo' : 'Attach Alex Eala photo'"></span>
+              <input type="file" accept="image/*" class="hidden" @change="attachSettingsImage('ealaPhoto', $event)">
+            </label>
+            <div class="space-y-1.5">
+              <template x-for="tn in Object.keys(teamSchedules)" :key="'ph-'+tn">
+                <label class="flex items-center gap-2 border hairline rounded-md px-2 py-1.5 cursor-pointer text-[11px] text-navy-400 hover:border-gold-400">
+                  <img x-show="teamSchedules[tn].photo" :src="teamSchedules[tn].photo" class="w-6 h-6 rounded object-cover">
+                  <i x-show="!teamSchedules[tn].photo" data-lucide="image-plus" class="w-3 h-3"></i>
+                  <span x-text="tn"></span>
+                  <input type="file" accept="image/*" class="hidden" @change="attachTeamPhoto(tn, $event)">
+                </label>
+              </template>
+            </div>
+            <p class="text-[10px] text-navy-400">Use only photos you have the rights to publish — press photos and broadcast screenshots are usually copyrighted.</p>
+
             <p class="text-[11px] font-semibold text-navy pt-1">Social Media Links (leave blank to hide the icon)</p>
             <div class="grid grid-cols-2 gap-3">
               <input x-model="siteSettings.facebook" placeholder="Facebook page URL" class="w-full border hairline rounded-md px-3 py-2 text-sm">
@@ -991,7 +1372,17 @@
 
         <h4 class="font-semibold text-navy text-sm mb-3" x-text="editingProductId ? 'Edit Product' : 'Add New Product'"></h4>
         <div class="space-y-3 mb-6">
-          <input x-model="newProduct.img" placeholder="Image URL" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+          <div>
+            <label class="flex items-center justify-center gap-2 border-2 border-dashed hairline rounded-md py-4 cursor-pointer hover:border-gold-400 transition-colors">
+              <i data-lucide="image-plus" class="w-4 h-4 text-navy-400"></i>
+              <span class="text-sm text-navy-400">Click to attach picture here</span>
+              <input type="file" accept="image/*" class="hidden" @change="attachProductImage($event)">
+            </label>
+            <div x-show="newProduct.img" x-cloak class="flex items-center gap-2 mt-2">
+              <img :src="newProduct.img" class="w-12 h-12 object-cover rounded border hairline">
+              <span class="text-[11px] text-gold-600 font-semibold">Picture attached</span>
+            </div>
+          </div>
           <input x-model="newProduct.title" placeholder="Product title" class="w-full border hairline rounded-md px-3 py-2 text-sm">
           <textarea x-model="newProduct.description" placeholder="Description" rows="3" class="w-full border hairline rounded-md px-3 py-2 text-sm"></textarea>
           <select x-model="newProduct.category" @change="newProduct.moq = categoryMOQ[newProduct.category] || 20" class="w-full border hairline rounded-md px-3 py-2 text-sm">
@@ -1012,18 +1403,55 @@
         <h4 class="font-semibold text-navy text-sm mb-3">Manage Catalog (<span x-text="products.length"></span>)</h4>
         <div class="space-y-2 max-h-72 overflow-y-auto mb-6">
           <template x-for="(p, idx) in products" :key="p.id">
-            <div class="flex items-center gap-3 border hairline rounded-md p-2">
-              <img :src="p.img" class="w-9 h-9 rounded object-cover">
-              <p class="flex-1 text-xs text-navy truncate" x-text="p.title"></p>
-              <button @click="editProduct(p)" class="text-navy-400 hover:text-navy text-xs shrink-0">Edit</button>
-              <button @click="products.splice(idx,1); saveProducts()" class="text-red-500 text-xs shrink-0">Remove</button>
+            <div class="border hairline rounded-md p-2">
+              <div class="flex items-center gap-3">
+                <label class="relative cursor-pointer shrink-0" title="Click photo to quickly replace the main image">
+                  <img :src="p.img" class="w-9 h-9 rounded object-cover">
+                  <span class="absolute inset-0 bg-navy-900/40 rounded opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="image-plus" class="w-3.5 h-3.5 text-white"></i></span>
+                  <input type="file" accept="image/*" class="hidden" @change="quickReplaceImage(p, $event)">
+                </label>
+                <p class="flex-1 text-xs text-navy truncate" x-text="p.title"></p>
+                <button @click="expandedGalleryId = expandedGalleryId===p.id ? null : p.id" class="text-gold-600 hover:text-gold-700 text-xs shrink-0 flex items-center gap-1">
+                  <i data-lucide="images" class="w-3 h-3"></i><span x-text="(p.gallery?.length||0)"></span>
+                </button>
+                <button @click="editProduct(p)" class="text-navy-400 hover:text-navy text-xs shrink-0">Edit</button>
+                <button @click="products.splice(idx,1); saveProducts()" class="text-red-500 text-xs shrink-0">Remove</button>
+              </div>
+
+              <div x-show="expandedGalleryId===p.id" x-cloak class="mt-2 pt-2 border-t hairline space-y-2">
+                <p class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold">Extra photos &amp; videos for this product</p>
+                <div class="flex flex-wrap gap-2">
+                  <template x-for="(g, gi) in (p.gallery||[])" :key="gi">
+                    <div class="relative w-12 h-12 rounded border hairline overflow-hidden group">
+                      <img x-show="g.type==='image'" :src="g.src" class="w-full h-full object-cover">
+                      <div x-show="g.type!=='image'" class="w-full h-full bg-navy flex items-center justify-center"><i data-lucide="play" class="w-3 h-3 text-white"></i></div>
+                      <button @click="removeGalleryItem(p, gi)" class="absolute inset-0 bg-red-600/80 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center text-[10px] font-bold">✕</button>
+                    </div>
+                  </template>
+                </div>
+                <label class="flex items-center justify-center gap-2 border-2 border-dashed hairline rounded-md py-2 cursor-pointer hover:border-gold-400 text-[11px] text-navy-400">
+                  <i data-lucide="plus" class="w-3 h-3"></i> Attach photo or video
+                  <input type="file" accept="image/*,video/*" class="hidden" @change="addGalleryItem(p, $event)">
+                </label>
+                <div class="flex gap-1">
+                  <input x-model="newGalleryLink[p.id]" placeholder="Or paste a YouTube link" class="flex-1 border hairline rounded px-2 py-1 text-[11px]">
+                  <button @click="addGalleryLink(p)" class="bg-navy text-white px-2 rounded text-[11px]">Add</button>
+                </div>
+              </div>
             </div>
           </template>
         </div>
 
         <h4 class="font-semibold text-navy text-sm mb-3">Post Production Update</h4>
         <div class="space-y-3 mb-6">
-          <input x-model="newUpdate.img" placeholder="Photo URL, direct video file URL (.mp4), or a YouTube link" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+          <label class="flex items-center justify-center gap-2 border-2 border-dashed hairline rounded-md py-3 cursor-pointer hover:border-gold-400 transition-colors">
+            <i data-lucide="paperclip" class="w-4 h-4 text-navy-400"></i>
+            <span class="text-xs text-navy-400">Click to attach a photo or short video file</span>
+            <input type="file" accept="image/*,video/*" class="hidden" @change="attachUpdateFile($event)">
+          </label>
+          <div x-show="newUpdate.img" x-cloak class="text-[11px] text-gold-600 font-semibold">File attached — ready to post.</div>
+          <p class="text-[10px] text-navy-400 text-center">— or paste a link instead —</p>
+          <input x-model="newUpdate.img" placeholder="Photo/video URL, or a YouTube link" class="w-full border hairline rounded-md px-3 py-2 text-sm">
           <textarea x-model="newUpdate.caption" placeholder="Caption — e.g. '500pcs varsity jacket order, day 3 of production'" rows="2" class="w-full border hairline rounded-md px-3 py-2 text-sm"></textarea>
           <button @click="addUpdate()" class="w-full bg-navy text-white font-semibold py-2.5 rounded-md text-sm">Post to Update Feed</button>
         </div>
@@ -1047,6 +1475,29 @@
             <input type="checkbox" x-model="showClientList" @change="toggleSection('mji_show_clientlist', showClientList)" class="w-4 h-4">
           </label>
         </div>
+
+        <details class="border hairline rounded-md mb-6">
+          <summary class="cursor-pointer px-4 py-3 font-semibold text-navy text-sm flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4"></i> Sports Countdowns — Schedules</summary>
+          <div class="p-4 pt-0 space-y-4">
+            <div class="space-y-2">
+              <p class="text-[11px] font-semibold text-navy">Alex Eala</p>
+              <input x-model="ealaNextMatch.event" placeholder="Tournament / event" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              <input x-model="ealaNextMatch.opponent" placeholder="Opponent" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              <input x-model="ealaNextMatch.targetDate" type="datetime-local" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              <input x-model="ealaNextMatch.watchLink" placeholder="Where to watch (link)" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+            </div>
+            <template x-for="tn in Object.keys(teamSchedules)" :key="'sch-'+tn">
+              <div class="space-y-2 border-t hairline pt-3">
+                <p class="text-[11px] font-semibold text-navy" x-text="tn"></p>
+                <input x-model="teamSchedules[tn].event" placeholder="Event / league" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+                <input x-model="teamSchedules[tn].opponent" placeholder="Opponent" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+                <input x-model="teamSchedules[tn].targetDate" type="datetime-local" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+                <input x-model="teamSchedules[tn].watchLink" placeholder="Where to watch (link)" class="w-full border hairline rounded-md px-3 py-2 text-sm">
+              </div>
+            </template>
+            <button @click="saveSportsSchedules()" class="w-full bg-navy text-white font-semibold py-2 rounded-md text-sm">Save Schedules</button>
+          </div>
+        </details>
 
         <h4 class="font-semibold text-navy text-sm mb-3">Testimonials</h4>
         <div class="space-y-2 mb-3">
@@ -1086,10 +1537,16 @@
         <div class="border-t hairline mt-6 pt-5 text-[11px] text-navy-400">
           <p>Logged in as <span class="font-semibold text-navy" x-text="netlifyUserEmail"></span> via Netlify Identity. To add another admin (e.g. a manager), invite them from Netlify → Identity → Invite users — no password sharing needed.</p>
         </div>
-
-        <button @click="window.netlifyIdentity && window.netlifyIdentity.logout()" class="w-full mt-4 border hairline text-navy-400 font-semibold py-2.5 rounded-md">Log Out</button>
       </div>
     </template>
+    </div>
+
+    <div x-show="adminAuthed" x-cloak class="shrink-0 border-t hairline p-4 sm:p-6 bg-white space-y-2">
+      <button @click="saveAllChanges()" class="w-full bg-gold hover:bg-gold-600 text-navy font-display font-bold py-3 rounded-md flex items-center justify-center gap-2">
+        <i data-lucide="save" class="w-4 h-4"></i> Save All Changes
+      </button>
+      <button @click="window.netlifyIdentity && window.netlifyIdentity.logout()" class="w-full border hairline text-navy-400 font-semibold py-2.5 rounded-md">Log Out</button>
+    </div>
   </div>
 </div>
 
@@ -1201,6 +1658,11 @@
   </div>
 </div>
 
+<!-- ============ BACK TO TOP ============ -->
+<button x-show="showBackToTop" x-cloak x-transition @click="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-24 right-5 z-40 w-11 h-11 rounded-full bg-white border hairline shadow-lg flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors">
+  <i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>
+
 <!-- ============ TOAST ============ -->
 <div x-show="toast" x-cloak x-transition class="fixed bottom-5 left-5 z-50 bg-navy text-white text-sm font-medium px-5 py-3 rounded-md shadow-xl flex items-center gap-2">
   <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i> <span x-text="toast"></span>
@@ -1208,6 +1670,10 @@
 
 <script>
 function mjApp(){
+  // Surfaces JS errors to the console with clear labeling — makes future bugs easy to spot and report.
+  window.addEventListener('error', (e)=>{
+    console.error('MJI site error:', e.message, 'at', e.filename+':'+e.lineno);
+  });
   // Safe storage wrapper — prevents the whole app from breaking if localStorage
   // is blocked (private browsing, sandboxed preview frames, some mobile browsers).
   const safeLS = {
@@ -1231,6 +1697,8 @@ function mjApp(){
       productionFacility: "#22 Bayabas St., Elmar's Subdivision, Cupang, Antipolo City",
       phoneGlobe: "09158991338", phoneDito: "09943880349", phoneSmartViber: "0929 227 1761", landline: "(02) 7971 9822",
       whatsappNumber: "639292271761", viberNumber: "639292271761",
+      heroImg1: "https://picsum.photos/seed/heroA/420/300", heroImg2: "https://picsum.photos/seed/heroB/420/300", heroImg3: "https://picsum.photos/seed/heroC/420/300",
+      explainerVideoUrl: "", ealaPhoto: "",
       facebook: "", instagram: "", tiktok: "", youtube: ""
     }),
     faqs:[
@@ -1256,25 +1724,63 @@ function mjApp(){
       {q:'How do I place a bulk order today?', a:'Browse the catalog or use the Design Studio to configure your item, add it to your Quotation Builder, then send it to our sales team via WhatsApp or Viber — or request a formal, signed quotation with down payment computation.'}
     ],
     paymentQR: safeLS.get('mji_payment_qr', {gcash:'', maya:'', bpi:''}),
-    mockup: {productId:'', color:'Navy', logos:[], fabricClass:'B', logoMethod:'embroidery', qty:20, addons:{reversible:false, reflector:false, hood:false, netLining:false}, addNames:false, sampleName:'JUAN DELA CRUZ'},
+    mockup: {productId:'', color:'Navy', logos:[], fabricClass:'B', logoMethod:'embroidery', qty:20, addons:{reversible:false, reflector:false, hood:false, netLining:false}, addNames:false, sampleName:'JUAN DELA CRUZ', rushOrder:false},
     ealaNextMatch: safeLS.get('mji_eala_match', {event:'Pan Pacific Open (Singapore Open), Sept 21 2026', opponent:'To be confirmed after the draw', watchLink:'https://app.blasttv.ph/home', targetDate:'2026-09-21T10:00:00+08:00'}),
+    fabricFilter:'All', selectedFabric:null, selectedColor:'',
+    crmOrders: safeLS.get('mji_crm_orders', []), crmFilter:'All',
+    mediaIndex:0, newGalleryLink:{}, expandedGalleryId:null,
+    newCrmOrder:{client:'', contact:'', details:'', qty:null, deadline:'', fabric:'', urgency:'Medium'},
+    fabrics: safeLS.get('mji_fabrics', [
+      {name:'Microfiber', class:'Class B', description:'Lightweight, smooth, quick-drying polyester. Our most popular jacket shell.', bestFor:'Varsity jackets, windbreakers, corporate jackets', img:'', video:'', colors:[{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'Royal Blue',hex:'#1E4FBF'},{name:'Red',hex:'#B61B25'},{name:'Maroon',hex:'#6B1F2C'},{name:'Green',hex:'#1E6B3C'},{name:'Gray',hex:'#77797C'},{name:'White',hex:'#F2F2F0'}]},
+      {name:'Michael Angelo', class:'Class B', description:'Soft-hand woven polyester with a subtle sheen and good body.', bestFor:'Corporate jackets, executive uniforms', img:'', video:'', colors:[{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'Charcoal',hex:'#3A3D42'},{name:'Maroon',hex:'#6B1F2C'},{name:'Royal Blue',hex:'#1E4FBF'}]},
+      {name:'Diamond Ripstop', class:'Class B', description:'Diamond-grid weave that resists tearing and spreading damage.', bestFor:'Coveralls, security and military uniforms, workwear', img:'', video:'', colors:[{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'Khaki',hex:'#9A8B66'},{name:'Olive Green',hex:'#4B5320'},{name:'Gray',hex:'#77797C'}]},
+      {name:'Honeycomb / Pique', class:'Class B', description:'Textured knit with visible mesh structure — breathable and stretchy.', bestFor:'Corporate polo shirts, school PE uniforms', img:'', video:'', colors:[{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'White',hex:'#F2F2F0'},{name:'Red',hex:'#B61B25'},{name:'Royal Blue',hex:'#1E4FBF'},{name:'Green',hex:'#1E6B3C'}]},
+      {name:'Dri-Fit / Performance Knit', class:'Class A', description:'Moisture-wicking knit that pulls sweat away from the skin.', bestFor:'Field teams, sports uniforms, outdoor staff polos', img:'', video:'', colors:[{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'Royal Blue',hex:'#1E4FBF'},{name:'Red',hex:'#B61B25'},{name:'Gray',hex:'#77797C'}]},
+      {name:'Oxford / Broadcloth', class:'Class A', description:'Crisp woven cotton-blend with a clean, formal finish.', bestFor:'Corporate long-sleeve uniforms, executive shirts', img:'', video:'', colors:[{name:'White',hex:'#F2F2F0'},{name:'Light Blue',hex:'#A7C4DC'},{name:'Navy Blue',hex:'#1B2A4A'},{name:'Gray',hex:'#77797C'}]},
+      {name:'Softshell', class:'Class A', description:'Bonded, water-repellent outer with fleece-backed warmth.', bestFor:'Executive jackets, cold-storage and outdoor teams', img:'', video:'', colors:[{name:'Black',hex:'#1A1A1A'},{name:'Navy Blue',hex:'#1B2A4A'},{name:'Charcoal',hex:'#3A3D42'}]},
+      {name:'Scrub Suit Poly-Cotton', class:'Class B', description:'Easy-care poly-cotton blend built for daily washing.', bestFor:'Hospital scrub suits, lab gowns, clinic staff', img:'', video:'', colors:[{name:'Ceil Blue',hex:'#7FA5C4'},{name:'Navy Blue',hex:'#1B2A4A'},{name:'Wine',hex:'#6B1F2C'},{name:'Teal',hex:'#2E7D80'},{name:'Gray',hex:'#77797C'}]},
+      {name:'Canvas / Twill', class:'Class A', description:'Heavy, durable weave that holds structure and takes abuse.', bestFor:'Heavy-duty coveralls, industrial uniforms', img:'', video:'', colors:[{name:'Khaki',hex:'#9A8B66'},{name:'Navy Blue',hex:'#1B2A4A'},{name:'Black',hex:'#1A1A1A'},{name:'Olive Green',hex:'#4B5320'}]}
+    ]),
+    nbaEast:['Atlanta Hawks','Boston Celtics','Brooklyn Nets','Charlotte Hornets','Chicago Bulls','Cleveland Cavaliers','Detroit Pistons','Indiana Pacers','Miami Heat','Milwaukee Bucks','New York Knicks','Orlando Magic','Philadelphia 76ers','Toronto Raptors','Washington Wizards'],
+    nbaWest:['Dallas Mavericks','Denver Nuggets','Golden State Warriors','Houston Rockets','LA Clippers','Los Angeles Lakers','Memphis Grizzlies','Minnesota Timberwolves','New Orleans Pelicans','Oklahoma City Thunder','Phoenix Suns','Portland Trail Blazers','Sacramento Kings','San Antonio Spurs','Utah Jazz'],
+    selectedTeam: 'Gilas Pilipinas',    teamCountdown: {days:0, hours:0, mins:0},
+    teamSchedules: safeLS.get('mji_team_schedules', {
+      'Gilas Pilipinas': {event:'FIBA Asia Cup Qualifiers', opponent:'To be confirmed', watchLink:'https://www.gilasprograms.ph', targetDate:'2026-10-01T19:00:00+08:00', photo:''},
+      'LA Lakers':        {event:'NBA Regular Season', opponent:'To be confirmed', watchLink:'https://www.nba.com/lakers', targetDate:'2026-10-05T09:00:00+08:00', photo:''},
+      'Golden State Warriors': {event:'NBA Regular Season', opponent:'To be confirmed', watchLink:'https://www.nba.com/warriors', targetDate:'2026-10-05T09:00:00+08:00', photo:''},
+      'Boston Celtics':   {event:'NBA Regular Season', opponent:'To be confirmed', watchLink:'https://www.nba.com/celtics', targetDate:'2026-10-05T09:00:00+08:00', photo:''}
+    }),
     countdown:{days:0,hours:0,mins:0},
     newsItems: [
       {title:'Loading latest headlines…', link:'#'}
     ],
-    weather:[],
+    weather:[], showBackToTop:false,
+    weatherCity:'Taguig (BGC)',
+    weatherCities:{
+      'Taguig (BGC)':{lat:14.5514,lon:121.0508}, 'Antipolo':{lat:14.5865,lon:121.1760},
+      'Manila':{lat:14.5995,lon:120.9842}, 'Quezon City':{lat:14.6760,lon:121.0437},
+      'Makati':{lat:14.5547,lon:121.0244}, 'Cebu City':{lat:10.3157,lon:123.8854},
+      'Davao City':{lat:7.1907,lon:125.4553}, 'Baguio':{lat:16.4023,lon:120.5960},
+      'Iloilo City':{lat:10.7202,lon:122.5621}, 'Cagayan de Oro':{lat:8.4542,lon:124.6319},
+      'Bacolod':{lat:10.6407,lon:122.9689}, 'Zamboanga City':{lat:6.9214,lon:122.0790},
+      'Singapore':{lat:1.3521,lon:103.8198}, 'Hong Kong':{lat:22.3193,lon:114.1694},
+      'Dubai':{lat:25.2048,lon:55.2708}, 'Tokyo':{lat:35.6762,lon:139.6503},
+      'Los Angeles':{lat:34.0522,lon:-118.2437}, 'New York':{lat:40.7128,lon:-74.0060},
+      'London':{lat:51.5074,lon:-0.1278}, 'Sydney':{lat:-33.8688,lon:151.2093}
+    },
     quoteItems: safeLS.get('mji_quote', []),
 
     categories:['Custom Varsity Jackets','Executive Company & Corporate Jackets','Water-Resistant Windbreakers','High-Vis Reflector Jackets','Full Sublimation Bomber Jackets','Military & Coverall Heavy-Duty Uniforms','Corporate Polo Shirts & Uniforms','Polo Jackets','Hospital Scrub Suits & Lab Gowns','School Uniforms','School P.E. Uniforms','Chef Uniforms','Security & Military Uniforms','Trophies & Awards','Enamel Pins','Customized Lanyards','Eco Bags, Tote Bags, Backpacks & Giveaways','Customized Mugs'],
 
     categoryMOQ:{
-      'Custom Varsity Jackets':5,'Executive Company & Corporate Jackets':5,'Water-Resistant Windbreakers':5,
-      'High-Vis Reflector Jackets':5,'Full Sublimation Bomber Jackets':5,'Military & Coverall Heavy-Duty Uniforms':5,
-      'Corporate Polo Shirts & Uniforms':5,'Polo Jackets':5,'Hospital Scrub Suits & Lab Gowns':5,
-      'School Uniforms':20,'School P.E. Uniforms':20,'Chef Uniforms':5,'Security & Military Uniforms':5,
-      'Trophies & Awards':20,'Enamel Pins':10,'Customized Lanyards':10,
+      'Custom Varsity Jackets':20,'Executive Company & Corporate Jackets':20,'Water-Resistant Windbreakers':20,
+      'High-Vis Reflector Jackets':20,'Full Sublimation Bomber Jackets':20,'Military & Coverall Heavy-Duty Uniforms':20,
+      'Corporate Polo Shirts & Uniforms':20,'Polo Jackets':20,'Hospital Scrub Suits & Lab Gowns':20,
+      'School Uniforms':20,'School P.E. Uniforms':20,'Chef Uniforms':20,'Security & Military Uniforms':20,
+      'Trophies & Awards':20,'Enamel Pins':20,'Customized Lanyards':20,
       'Eco Bags, Tote Bags, Backpacks & Giveaways':50,'Customized Mugs':50
     },
+
 
     // Maps each catalog category to its real price table key (see priceTables below).
     categoryPriceTable:{
@@ -1426,11 +1932,35 @@ function mjApp(){
       setInterval(()=> this.updateCountdown(), 60000);
       this.loadNews();
       this.loadWeather();
+      if(window.AOS) AOS.init({duration:600, once:true, offset:80});
+      window.addEventListener('scroll', ()=>{ this.showBackToTop = window.scrollY > 600; });
       if(!safeLS.get('mji_cookies_accepted', false)) this.showCookieNotice = true;
     },
 
     acceptCookies(){ safeLS.set('mji_cookies_accepted', true); this.showCookieNotice = false; },
+    shareSite(platform){
+      const url = window.location.href;
+      const text = 'Customized Jackets and More — bulk jacket and uniform manufacturer in the Philippines';
+      if(platform==='facebook') window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+      else if(platform==='twitter') window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url), '_blank');
+      else if(navigator.share) navigator.share({title:text, url}).catch(()=>{});
+      else { navigator.clipboard?.writeText(url); this.showToast('Link copied to clipboard.'); }
+    },
     saveSiteSettings(){ safeLS.set('mji_site_settings', this.siteSettings); this.showToast('Site settings saved.'); },
+    saveAllChanges(){
+      safeLS.set('mji_site_settings', this.siteSettings);
+      safeLS.set('mji_products', this.products);
+      safeLS.set('mji_testimonials', this.testimonials);
+      safeLS.set('mji_client_names', this.clientNames);
+      safeLS.set('mji_updates', this.updates);
+      safeLS.set('mji_payment_qr', this.paymentQR);
+      safeLS.set('mji_show_testimonials', this.showTestimonials);
+      safeLS.set('mji_show_clientlist', this.showClientList);
+      safeLS.set('mji_crm_orders', this.crmOrders);
+      safeLS.set('mji_fabrics', this.fabrics);
+      safeLS.set('mji_team_schedules', this.teamSchedules);
+      this.showToast('All changes saved to this browser.');
+    },
 
     openAdminOrExplain(){
       if(this.adminAuthed){ this.showAdmin = true; return; }
@@ -1439,11 +1969,14 @@ function mjApp(){
     },
 
     // Free, no-API-key weather via Open-Meteo — genuinely live, works from any browser.
-    async loadWeather(){
-      const codeMap = {0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'⛈️',80:'🌦️',81:'🌧️',82:'⛈️',95:'⛈️'};
+    async loadWeather(lat, lon){
+      const codeMap = {0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'⛈️',80:'🌦️',81:'🌧️',82:'⛈️',95:'⛈️',96:'⛈️',99:'⛈️'};
       const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const city = this.weatherCities[this.weatherCity];
+      const la = lat ?? city?.lat ?? 14.5514;
+      const lo = lon ?? city?.lon ?? 121.0508;
       try{
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=14.5514&longitude=121.0508&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FManila');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+la+'&longitude='+lo+'&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto');
         const data = await res.json();
         this.weather = data.daily.time.map((t,i)=>({
           day: days[new Date(t).getDay()],
@@ -1454,32 +1987,160 @@ function mjApp(){
       }catch(e){ this.weather = []; }
     },
 
+    useMyLocation(){
+      if(!navigator.geolocation){ this.showToast('Your browser does not support location detection.'); return; }
+      navigator.geolocation.getCurrentPosition(
+        (pos)=>{ this.weatherCity = 'My Location'; this.loadWeather(pos.coords.latitude, pos.coords.longitude); },
+        ()=> this.showToast('Location access denied — pick a city from the list instead.')
+      );
+    },
+
     // Pulls REAL, live headlines via the free rss2json.com bridge (browsers can't fetch
     // RSS/XML cross-origin directly). No API key = low rate limit; for reliable production
     // use, get a free key at rss2json.com and add it to FEEDS below as &api_key=YOUR_KEY.
     async loadNews(){
+      // Philippine headlines lead the ticker, then PH sports, then world news.
       const FEEDS = [
-        'https://news.google.com/rss/search?q=Philippines+headline&hl=en-PH&gl=PH&ceid=PH:en',
-        'https://news.google.com/rss/search?q=NBA+Lakers&hl=en-US&gl=US&ceid=US:en',
-        'https://news.google.com/rss/search?q=Gilas+Pilipinas&hl=en-PH&gl=PH&ceid=PH:en',
-        'https://news.google.com/rss/search?q=Alex+Eala&hl=en-PH&gl=PH&ceid=PH:en'
+        {url:'https://news.google.com/rss?hl=en-PH&gl=PH&ceid=PH:en', take:6, ph:true},
+        {url:'https://news.google.com/rss/search?q=Philippines+business&hl=en-PH&gl=PH&ceid=PH:en', take:3, ph:true},
+        {url:'https://news.google.com/rss/search?q=Gilas+Pilipinas+OR+Alex+Eala&hl=en-PH&gl=PH&ceid=PH:en', take:3, ph:true},
+        {url:'https://news.google.com/rss/search?q=NBA&hl=en-US&gl=US&ceid=US:en', take:3, ph:false},
+        {url:'https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en', take:3, ph:false}
       ];
-      let all = [];
-      for(const url of FEEDS){
-        try{
-          const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url));
-          const data = await res.json();
-          if(data.status==='ok' && data.items){ all = all.concat(data.items.slice(0,3).map(i=>({title:i.title, link:i.link}))); }
-        }catch(e){ /* silently skip a feed that fails — ticker still shows the others */ }
+
+      // Two CORS bridges — if the first is rate-limited, the second is tried automatically.
+      const bridges = [
+        u => 'https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(u),
+        u => 'https://api.allorigins.win/raw?url='+encodeURIComponent(u)
+      ];
+
+      const fetchFeed = async (feed) => {
+        for(const bridge of bridges){
+          try{
+            const res = await fetch(bridge(feed.url));
+            const text = await res.text();
+            let items = [];
+            try{
+              const json = JSON.parse(text);
+              if(json.status==='ok' && json.items) items = json.items.map(i=>({title:i.title, link:i.link}));
+            }catch(_){
+              // Raw XML from the fallback bridge — parse it directly.
+              const doc = new DOMParser().parseFromString(text, 'text/xml');
+              items = Array.from(doc.querySelectorAll('item')).map(el=>({
+                title: el.querySelector('title')?.textContent || '',
+                link: el.querySelector('link')?.textContent || '#'
+              }));
+            }
+            if(items.length) return items.slice(0, feed.take).map(i=>({...i, ph:feed.ph}));
+          }catch(_){ /* try next bridge */ }
+        }
+        return [];
+      };
+
+      const results = await Promise.all(FEEDS.map(fetchFeed));
+      const all = results.flat();
+      if(all.length){
+        // Philippine items first so they lead the ticker
+        this.newsItems = [...all.filter(i=>i.ph), ...all.filter(i=>!i.ph)];
+      } else {
+        this.newsItems = [{title:'Live headlines are temporarily unavailable — check GMA News, ABS-CBN, Inquirer, or ESPN directly.', link:'#', ph:true}];
       }
-      if(all.length > 0){ this.newsItems = all; }
-      else { this.newsItems = [{title:'Headlines temporarily unavailable — visit ABS-CBN News, ESPN, or the PBA/Gilas Pilipinas official pages directly.', link:'#'}]; }
     },
 
     updateCountdown(){
-      const target = new Date(this.ealaNextMatch.targetDate).getTime();
-      const diff = Math.max(0, target - Date.now());
-      this.countdown = {
+      this.countdown = this.countdownTo(this.ealaNextMatch.targetDate);
+      const team = this.teamSchedules[this.selectedTeam];
+      if(team) this.teamCountdown = this.countdownTo(team.targetDate);
+    },
+
+    filteredFabrics(){
+      return this.fabricFilter==='All' ? this.fabrics : this.fabrics.filter(f=> f.class===this.fabricFilter);
+    },
+
+    pickFabric(fabric, color){
+      this.selectedFabric = fabric;
+      this.selectedColor = color ? color.name : '';
+      // Carry the choice straight into the Design Studio's pricing
+      this.mockup.fabricClass = fabric.class==='Class A' ? 'A' : 'B';
+      this.mockup.color = this.selectedColor;
+      this.showToast(fabric.name + ' — ' + this.selectedColor + ' selected.');
+    },
+
+    saveSportsSchedules(){
+      safeLS.set('mji_eala_match', this.ealaNextMatch);
+      safeLS.set('mji_team_schedules', this.teamSchedules);
+      this.updateCountdown();
+      this.showToast('Sports schedules saved.');
+    },
+
+    saveFabrics(){ safeLS.set('mji_fabrics', this.fabrics); },
+
+    // ---- CRM / ERP pipeline ----
+    saveCrm(){ safeLS.set('mji_crm_orders', this.crmOrders); },
+
+    filteredCrmOrders(){
+      return this.crmFilter==='All' ? this.crmOrders : this.crmOrders.filter(o=> o.stage===this.crmFilter);
+    },
+
+    urgencyBorder(u){
+      return {Urgent:'border-l-red-500', High:'border-l-orange-400', Medium:'border-l-gold-400', Low:'border-l-navy-100'}[u] || 'border-l-navy-100';
+    },
+    urgencyBadge(u){
+      return {Urgent:'bg-red-100 text-red-700', High:'bg-orange-100 text-orange-700', Medium:'bg-gold/20 text-gold-600', Low:'bg-navy-50 text-navy-400'}[u] || 'bg-navy-50 text-navy-400';
+    },
+
+    addCrmOrder(){
+      if(!this.newCrmOrder.client.trim()){ this.showToast('Client name is required.'); return; }
+      this.crmOrders.unshift({
+        id: Date.now(), ...this.newCrmOrder, stage:'New Inquiry', nextAction:'', value:null,
+        mockup:'', logoFile:'', created: new Date().toLocaleDateString('en-PH')
+      });
+      this.saveCrm();
+      this.newCrmOrder = {client:'', contact:'', details:'', qty:null, deadline:'', fabric:'', urgency:'Medium'};
+      this.showToast('Lead added to pipeline.');
+    },
+
+    // Called when a customer sends a quotation — captures their full config into the CRM automatically.
+    pushQuoteToCrm(){
+      const items = this.quoteItems.map(i=> i.title+' ×'+i.tierQty+'pcs').join('; ');
+      let mockupData = '';
+      try{ if(this.$refs.mockupCanvas && this.mockup.productId) mockupData = this.$refs.mockupCanvas.toDataURL('image/png'); }catch(e){}
+      this.crmOrders.unshift({
+        id: Date.now(),
+        client: this.clientInfo.name || this.inquiry.company || 'Website visitor (name not given)',
+        contact: this.clientInfo.address || this.inquiry.contact || 'Sent via WhatsApp/Viber',
+        details: items || 'Quotation sent from website',
+        qty: this.quoteItems.reduce((s,i)=> s + Number(i.tierQty||0), 0),
+        deadline: '', urgency: this.mockup.rushOrder ? 'Urgent' : 'Medium',
+        fabric: this.selectedFabric ? (this.selectedFabric.name+' — '+this.selectedColor) : (this.mockup.fabricClass==='A' ? 'Class A' : 'Class B'),
+        stage:'New Inquiry', nextAction: this.mockup.rushOrder ? 'RUSH — confirm 7–10 day feasibility' : 'Send formal quotation',
+        value: this.grandTotal(),
+        mockup: mockupData,
+        logoFile: this.mockup.logos[0]?.src || '',
+        created: new Date().toLocaleDateString('en-PH')
+      });
+      this.saveCrm();
+    },
+
+    // Any of the 30 NBA teams can be picked; create a default entry on first selection
+    // so the admin can then fill in the real schedule from the Admin Panel.
+    ensureTeam(){
+      const t = this.selectedTeam;
+      if(!this.teamSchedules[t]){
+        const slug = t.toLowerCase().replace(/^(los angeles|la) /,'').replace(/\s+/g,'');
+        this.teamSchedules[t] = {
+          event:'NBA Regular Season', opponent:'To be confirmed',
+          watchLink:'https://www.nba.com/'+slug,
+          targetDate: new Date(Date.now()+7*86400000).toISOString().slice(0,16),
+          photo:''
+        };
+        safeLS.set('mji_team_schedules', this.teamSchedules);
+      }
+    },
+
+    countdownTo(dateStr){
+      const diff = Math.max(0, new Date(dateStr).getTime() - Date.now());
+      return {
         days: Math.floor(diff / (1000*60*60*24)),
         hours: Math.floor((diff / (1000*60*60)) % 24),
         mins: Math.floor((diff / (1000*60)) % 60)
@@ -1494,7 +2155,56 @@ function mjApp(){
       });
     },
 
-    openModal(p){ this.selectedProduct = p; },
+    openModal(p){ this.selectedProduct = p; this.mediaIndex = 0; },
+
+    // ---- Product media gallery (Alibaba-style: main image + extra photos/videos) ----
+    allMedia(p){
+      if(!p) return [];
+      const media = [{type:'image', src:p.img}];
+      (p.gallery || []).forEach(g=>{
+        if(g.type==='youtube'){ media.push({type:'youtube', src:this.youtubeEmbedUrl(g.src)}); }
+        else { media.push({type:g.type||'image', src:g.src}); }
+      });
+      return media;
+    },
+    mediaCount(p){ return this.allMedia(p).length; },
+    activeMedia(p){
+      const m = this.allMedia(p);
+      return m[this.mediaIndex] || m[0] || {type:'image', src:''};
+    },
+    nextMedia(p){ this.mediaIndex = (this.mediaIndex + 1) % this.allMedia(p).length; },
+    prevMedia(p){ const n = this.allMedia(p).length; this.mediaIndex = (this.mediaIndex - 1 + n) % n; },
+
+    addGalleryItem(product, e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const isVideo = file.type.startsWith('video/');
+      const limit = isVideo ? 8*1024*1024 : 1.5*1024*1024;
+      if(file.size > limit){ this.showToast('Too large — photos under 1.5MB, videos under 8MB (or use a YouTube link).'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{
+        if(!product.gallery) product.gallery = [];
+        product.gallery.push({type: isVideo ? 'video' : 'image', src: ev.target.result});
+        this.saveProducts();
+        this.showToast('Added to '+product.title+' gallery.');
+      };
+      reader.readAsDataURL(file);
+    },
+
+    addGalleryLink(product){
+      const link = (this.newGalleryLink[product.id] || '').trim();
+      if(!link) return;
+      if(!product.gallery) product.gallery = [];
+      product.gallery.push({type:'youtube', src: link});
+      this.newGalleryLink[product.id] = '';
+      this.saveProducts();
+      this.showToast('Video link added to gallery.');
+    },
+
+    removeGalleryItem(product, idx){
+      product.gallery.splice(idx,1);
+      this.saveProducts();
+    },
 
     addToQuote(p){
       if(this.quoteItems.find(i=>i.id===p.id)){ this.showToast(p.title + ' is already in your quotation.'); return; }
@@ -1561,13 +2271,13 @@ function mjApp(){
 
     sendViaWhatsApp(){
       if(this.quoteItems.length===0){ this.showToast('Add at least one product to your quotation first.'); return; }
-      this.submitToNetlify('quotation', {client: this.clientInfo.name || 'Not provided', items: this.quoteItems.map(i=>i.title+' x'+i.tierQty).join(', '), total: this.grandTotal(), payment: this.activePayment});
+      this.pushQuoteToCrm(); this.submitToNetlify('quotation', {client: this.clientInfo.name || 'Not provided', items: this.quoteItems.map(i=>i.title+' x'+i.tierQty).join(', '), total: this.grandTotal(), payment: this.activePayment});
       window.open('https://wa.me/'+this.siteSettings.whatsappNumber+'?text='+this.waMessage(), '_blank');
     },
 
     sendViaViber(){
       if(this.quoteItems.length===0){ this.showToast('Add at least one product to your quotation first.'); return; }
-      this.submitToNetlify('quotation', {client: this.clientInfo.name || 'Not provided', items: this.quoteItems.map(i=>i.title+' x'+i.tierQty).join(', '), total: this.grandTotal(), payment: this.activePayment});
+      this.pushQuoteToCrm(); this.submitToNetlify('quotation', {client: this.clientInfo.name || 'Not provided', items: this.quoteItems.map(i=>i.title+' x'+i.tierQty).join(', '), total: this.grandTotal(), payment: this.activePayment});
       // Viber's URI scheme does not reliably support pre-filled text like WhatsApp does,
       // so we copy the message to the clipboard and open the Viber chat directly.
       const plain = decodeURIComponent(this.waMessage()).replace(/%0A/g,'\n');
@@ -1620,6 +2330,15 @@ function mjApp(){
       });
     },
 
+    // Public-facing reference table: starts at 20 pcs (company MOQ policy) and labels the
+    // top open-ended tier as 10,000+ for clarity, even though the same rate applies from 1,000 pcs up.
+    displayJacketTiers(){
+      return this.priceTables.jacket.filter(t=> t.min>=20).map((t,i,arr)=>({
+        min:t.min, price:t.price,
+        label: i===arr.length-1 ? '10,000+ pcs' : (t.min+'–'+t.max+' pcs')
+      }));
+    },
+
     getMockupProduct(){
       return this.products.find(p=> p.id === Number(this.mockup.productId) || p.id === this.mockup.productId);
     },
@@ -1664,7 +2383,9 @@ function mjApp(){
         nameCost = this.letterCount(this.mockup.sampleName) * this.namePerLetter[this.mockup.logoMethod];
       }
 
-      const perPieceTotal = pricePerPiece + addonsTotal + extraLogosCost + nameCost;
+      const rushCost = this.mockup.rushOrder ? 200 : 0;
+
+      const perPieceTotal = pricePerPiece + addonsTotal + extraLogosCost + nameCost + rushCost;
       const grandTotal = Math.round(perPieceTotal * qty);
 
       // Upsell rule: always round UP to the next hundred and quote that volume —
@@ -1677,7 +2398,7 @@ function mjApp(){
         const savingsPerPc = pricePerPiece - nextPrice;
         upsell = '📈 Order '+nextHundred.toLocaleString()+' pcs instead and pay ₱'+nextPrice.toLocaleString()+'/pc — save ₱'+savingsPerPc.toLocaleString()+' per piece.';
       }
-      return {pricePerPiece, addonsTotal, extraLogosCost, nameCost, perPieceTotal, grandTotal, upsell};
+      return {pricePerPiece, addonsTotal, extraLogosCost, nameCost, rushCost, perPieceTotal, grandTotal, upsell};
     },
 
     addMockupToQuote(){
@@ -1753,13 +2474,29 @@ function mjApp(){
       link.click();
     },
 
+    attachUpdateFile(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const limit = file.type.startsWith('video/') ? 8*1024*1024 : 1.5*1024*1024;
+      if(file.size > limit){ this.showToast('File too large — please use a photo under 1.5MB or a video under 8MB (or use a YouTube link for longer videos).'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{
+        this.newUpdate.img = ev.target.result;
+        this.newUpdate.attachedType = file.type.startsWith('video/') ? 'video' : 'image';
+        this.showToast('File attached.');
+      };
+      reader.readAsDataURL(file);
+    },
+
     addUpdate(){
       if(!this.newUpdate.img && !this.newUpdate.caption){ this.showToast('Add a photo/video URL or a caption first.'); return; }
       const url = this.newUpdate.img;
-      let type = 'image', embedUrl = '';
-      const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
-      if(yt){ type = 'youtube'; embedUrl = 'https://www.youtube.com/embed/'+yt[1]; }
-      else if(/\.(mp4|webm|mov)(\?.*)?$/i.test(url)){ type = 'video'; }
+      let type = this.newUpdate.attachedType || 'image', embedUrl = '';
+      if(!this.newUpdate.attachedType){
+        const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+        if(yt){ type = 'youtube'; embedUrl = 'https://www.youtube.com/embed/'+yt[1]; }
+        else if(/\.(mp4|webm|mov)(\?.*)?$/i.test(url)){ type = 'video'; }
+      }
       this.updates.unshift({id:Date.now(), img:url, embedUrl, type, caption:this.newUpdate.caption, date: new Date().toLocaleDateString('en-PH', {month:'short', day:'numeric', year:'numeric'})});
       this.saveUpdates();
       this.newUpdate = {img:'', caption:''};
@@ -1801,6 +2538,59 @@ function mjApp(){
       this.saveProducts();
       this.newProduct = {img:'',title:'',description:'',category:'',moq:20,leadTime:''};
       this.showToast('Product added to catalog.');
+    },
+
+    // Normalizes any YouTube URL format (watch?v=, youtu.be, already-embed) into a working embed URL.
+    youtubeEmbedUrl(url){
+      if(!url) return '';
+      if(url.includes('/embed/')) return url;
+      const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+      return m ? 'https://www.youtube.com/embed/'+m[1] : url;
+    },
+
+    attachExplainerVideo(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      if(file.size > 8*1024*1024){ this.showToast('Please use a video under 8MB, or use a YouTube link for longer videos.'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{ this.siteSettings.explainerVideoUrl = ev.target.result; this.siteSettings.explainerVideoType = 'file'; this.showToast('Video attached.'); };
+      reader.readAsDataURL(file);
+    },
+
+    attachSettingsImage(key, e){
+      const file = e.target.files[0];
+      if(!file) return;
+      if(file.size > 1.5*1024*1024){ this.showToast('Please use a photo under 1.5MB.'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{ this.siteSettings[key] = ev.target.result; this.saveSiteSettings(); };
+      reader.readAsDataURL(file);
+    },
+
+    attachTeamPhoto(team, e){
+      const file = e.target.files[0];
+      if(!file) return;
+      if(file.size > 1.5*1024*1024){ this.showToast('Please use a photo under 1.5MB.'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{ this.teamSchedules[team].photo = ev.target.result; safeLS.set('mji_team_schedules', this.teamSchedules); this.showToast(team+' photo updated.'); };
+      reader.readAsDataURL(file);
+    },
+
+    attachProductImage(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      if(file.size > 1.5*1024*1024){ this.showToast('Please use a photo under 1.5MB (browser storage has limited space).'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{ this.newProduct.img = ev.target.result; this.showToast('Picture attached.'); };
+      reader.readAsDataURL(file);
+    },
+
+    quickReplaceImage(product, e){
+      const file = e.target.files[0];
+      if(!file) return;
+      if(file.size > 1.5*1024*1024){ this.showToast('Please use a photo under 1.5MB.'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev)=>{ product.img = ev.target.result; this.saveProducts(); this.showToast('Photo updated for '+product.title+'.'); };
+      reader.readAsDataURL(file);
     },
 
     editProduct(p){
